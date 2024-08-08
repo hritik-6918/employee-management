@@ -1,25 +1,20 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react';
+import './styles.css';
+import EmployeeList from './components/EmployeeList';
+import EmployeeForm from './components/EmployeeForm';
 
-function App() {
+const App = () => {
+  const handleEmployeeAdded = () => {
+    // Trigger an update on the EmployeeList component after a new employee is added
+    window.location.reload();
+  };
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <EmployeeForm onEmployeeAdded={handleEmployeeAdded} />
+      <EmployeeList />
     </div>
   );
-}
+};
 
 export default App;
